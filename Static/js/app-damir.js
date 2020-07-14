@@ -125,6 +125,7 @@ function weatherHistoryPlot(city, startd, endd) {
   });
 }
 
+var myMap = null;
 // Function to map local attractions
 //===========================
 function mapAttractions(city) {
@@ -132,12 +133,12 @@ function mapAttractions(city) {
   console.log(url)
   // Grab the data .with d3
   // d3.json(url, function (response) {
-  d3.json(url).then(function (response) { 
+  d3.json(url).then(function (response) {
     console.log(response);
-    
+
     let res = response.data.results;
     console.log(res);
-  
+
     // define coordinates for our cities
     const coordinates = {
       'Chicago': [41.8781, -87.6298],
@@ -153,50 +154,53 @@ function mapAttractions(city) {
     }
 
     // Create a map object
-    var myMap = L.DomUtil.get('map');
-      if(myMap != null){
-        myMap._leaflet_id = null;
-      }
 
+    // var myMap = L.DomUtil.get('map');
+    //   if(myMap !== null){
+    //     myMap._leaflet_id = null;
+    //    }
+    
+    if (myMap !== undefined && myMap !== null) {
+      myMap.remove(); // should remove the map from UI and clean the inner children of DOM element
+    }
 
     myMap = L.map("map", {
       center: getCoordinate(city),
       zoom: 13
     });
 
-  
-    
+
     // Add a tile layer
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-        maxZoom: 18,
-        id: 'mapbox/streets-v11',
-        tileSize: 512,
-        zoomOffset: -1,
-        accessToken: API_KEY
+      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+      maxZoom: 18,
+      id: 'mapbox/streets-v11',
+      tileSize: 512,
+      zoomOffset: -1,
+      accessToken: API_KEY
     }).addTo(myMap);
 
 
     // Loop through all results
     for (i = 0; i < res.length; i++) {
-      
+
       var name = res[i].name;
-      
+
       // Create an array for attraction coordinates
       var lat = res[i].geometry.location.lat;
       var lng = res[i].geometry.location.lng;
       var location = [lat, lng];
-  
+
       var status = res[i].business_status;
       var address = res[i].formatted_address;
-  
-    
+
+
       // Create one marker for each attraction, bind a popup containing useful information
       L.marker(location)
         .bindPopup("<h5>" + name + "</h5> <hr> <h6> " + address + "<br> <b>Status: </b>" + status + "</h6>")
         .addTo(myMap);
     }
-  }); 
+  });
 }
 
 
@@ -212,7 +216,7 @@ function init() {
   // End date is in a week
   let endDate = new Date(today.setDate(today.getDate() + 7));
   let initEndd = endDate.toISOString().split("T")[0];
-  
+
   console.log("INIT:", initCity, initStartd, initEndd);
 
 
@@ -224,7 +228,7 @@ function init() {
 // Function to run after every change
 //===========================
 function optionChanged() {
-  
+
   let destinationSelect = document.getElementById("destinations");
   let destinations = destinationSelect.options[destinationSelect.selectedIndex].innerText;
   let startd = document.getElementById("startd").value;
