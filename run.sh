@@ -1,1 +1,1 @@
-FLASK_APP=api.app.py flask run
+FLASK_APP=tt-dashboard/app.py flask run
