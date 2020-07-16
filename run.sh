@@ -1,1 +1,0 @@
-FLASK_APP=tt-dashboard/app.py flask run
