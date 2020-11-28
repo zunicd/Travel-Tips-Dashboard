@@ -4,7 +4,7 @@
 
 ### Objective
 
-The purpose of this project, was to create a travel tips dashboard combining different data sources. Users are able to choose from a selection of top 5 US destinations. The dashboard will display minimum flight prices originated from Indianapolis,  destination city historical temperatures for the trip dates (plus 1 week after and before), and destination city attractions on a leaflet map.
+This was a team project and its purpose was to create a travel tips dashboard combining different data sources. Users are able to choose from a selection of top 5 US destinations. The dashboard will display minimum flight prices originated from Indianapolis,  destination city historical temperatures for the trip dates (plus 1 week after and before), and destination city attractions on a leaflet map.
 
 For the initial load the dashboard displays historical temperatures for Indianapolis (1 week before and 2 weeks after the current day) together with Indianapolis attractions.
 
@@ -128,16 +128,43 @@ The function **mappingAttractions** will be started the same way as the function
 ### Tools / Techniques Used:
 
 - JavaScript
+
 - Leaflet.js
+
 - D3.js
+
 - Python
+
 - HTML/CSS
+
 - Plotly
+
 - [Mapbox API](https://www.mapbox.com/)
+
 - [Google Places API](https://developers.google.com/places/web-service/search#TextSearchRequests)
+
 - Flask
+
 - SQLAlchemy
+
+- SQLite
+
 - Pandabase
+
+  
+
+#### Team Members:
+
+- Damir Zunic ([zunicd@yahoo.com](mailto:zunicd@yahoo.com)):
+  - everything listed above
+- Kevin Scoleri ([kscoleri89@gmail.com](mailto:kscoleri89@gmail.com)):
+  - web page design (HTML, CSS, Bootstrap)
+- Nate Newcomer (nsnewcomer92@gmail.com):
+  - flight data collection, analysis and visualization (JavaScript, jQuery)
+
+
+
+
 
 
 
