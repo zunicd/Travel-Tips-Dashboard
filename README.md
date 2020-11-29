@@ -26,7 +26,7 @@ For the initial load the dashboard displays historical temperatures for Indianap
 
 - Historical weather data was downloaded for five chosen cities plus Indianapolis for years 2010 - 2019 inclusive.
 - Due to limitation to the number of results per query, we downloaded data to 4 CSV files.
-- The following steps could bee seen in details in the notebook *ETL_for_Travel_Tips_Dashboard.ipynb*:
+- The following steps could be seen in details in the notebook *ETL_for_Travel_Tips_Dashboard.ipynb*:
   - The files were loaded to Pandas dataframe and then joined.
   - We removed not needed columns and sorted dataframe per location and date in ascending order.
   - The index was named so it could be used as a primary key in a database table.
