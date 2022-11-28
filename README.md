@@ -1,6 +1,6 @@
 # Travel Tips Dashboard
 
-**This project is deployed to Heroku:**  https://travel-tips-dashboard.herokuapp.com/
+**This project is deployed to Render:**  [https://travel-tips-dashboard.onrender.com](https://travel-tips-dashboard.onrender.com)
 
 ### Objective
 
